@@ -28,26 +28,38 @@ public class CampfireNotifier extends Notifier {
     // getters for project configuration..
     // Configured room name / subdomain / token should be null unless different from descriptor/global values
     public String getConfiguredRoomName() {
-        if ( DESCRIPTOR.getRoom().equals(room.getName()) ) {
+        try {
+            if ( DESCRIPTOR.getRoom().equals(room.getName()) ) {
+                return null;
+            } else {
+                return room.getName();
+            }
+        } catch ( Exception e ) {
             return null;
-        } else {
-            return room.getName();
         }
     }
 
     public String getConfiguredSubdomain() {
-        if ( DESCRIPTOR.getSubdomain().equals(campfire.getSubdomain()) ) {
+        try {
+            if ( DESCRIPTOR.getSubdomain().equals(campfire.getSubdomain()) ) {
+                return null;
+            } else {
+                return campfire.getSubdomain();
+            }
+        } catch ( Exception e ) {
             return null;
-        } else {
-            return campfire.getSubdomain();
         }
     }
 
     public String getConfiguredToken() {
-        if ( DESCRIPTOR.getToken().equals(campfire.getToken()) ) {
+        try {
+            if ( DESCRIPTOR.getToken().equals(campfire.getToken()) ) {
+                return null;
+            } else {
+                return campfire.getToken();
+            }
+        } catch ( Exception e ) {
             return null;
-        } else {
-            return campfire.getToken();
         }
     }
 
