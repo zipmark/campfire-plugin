@@ -113,9 +113,8 @@ public class CampfireNotifier extends Notifier {
             }
         }
         String resultString = result.toString();
-        if (!smartNotify && result == Result.SUCCESS) resultString = resultString.toLowerCase();
         String message = build.getProject().getName() + " " + build.getDisplayName() + " \"" + changeString + "\": " + resultString;
-        if (hudsonUrl != null && hudsonUrl.length() > 1 && (smartNotify || result != Result.SUCCESS)) {
+        if (hudsonUrl != null && hudsonUrl.length() > 1) {
             message = message + " (" + hudsonUrl + build.getUrl() + ")";
         }
         room.speak(message);
